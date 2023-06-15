@@ -1,0 +1,351 @@
+\documentclass{article}
+% Setup for fullpage use
+\usepackage{fullpage}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+	\begin{center}\large#1\end{center}
+	\vskip0.5em}%
+}
+
+\author{Madison Perry}
+\title{Changes in ASEC data from 2005 to 2019}
+\subtitle{A compilation of information from the March Annual Social and Economic Supplement technical documentation}
+
+\begin{document}
+	
+	\maketitle
+
+From 2005 to 2006:
+\begin{itemize}
+	 \item{ A-VET (Veteran Status) is split into five variables: PEAFEVER, PEAFWHN1, PEAFWHN2, PEAFWHN3, and PEAFWHN4.}
+	 \begin{itemize}
+	 	\item{PEAFEVER indicates whether a person ever served in the military and the four PEAFWHN variables provide dates for up to four periods of service.}
+	 \end{itemize}
+	\item{Variable PRSWKXPNS (work expenses - dollar amount) added and 4 items related to Hurricane Katrina added.}
+	\item{5-year migration variables removed.}
+	\begin{itemize}
+		\item{M\%G\_CBST - MSA status description of residence 5 years ago}
+		\item{M5G\_DSCP - Recode of CBSA status of residence 5 years ago}
+		\item{M5G\_SAME - Was ... living in this house 5 years ago on March 1?}
+		\item{M5G\_REG -  Recode - Region of previous residence 5 years ago}
+		\item{M5G\_ST - Recode - FIPS state code of previous residence 5 years ago}
+		\item{M5G\_DIV - Recode - Census division of previous residence 5 years ago}
+		\item{M5G\_MTR1 - Recode migration}
+		\item{M5G\_MTR3 - Recode migration}
+		\item{M5G\_MTR4 - Recode migration}
+	\end{itemize}
+	\item{Item PEINUSYR (Year of entry to the US) has a revised description for the value of 18. This value now means 2002-2003, and a new value of 19 appears. This variable is updated every year to have a new value representing the year prior to the year in which the survey was collected.}
+	\item Topcode amounts:
+	\begin{itemize}
+		\item ERN-VAL \$200,000
+		\item WS-VAL 35,000
+		\item SE-VAL 50,000
+		\item FRM-VAL 25,000
+	\end{itemize}
+\end{itemize}
+	
+From 2006 to 2007:
+\begin{itemize}
+	\item Hurricane Katrina items HURHHSCRN, PURKAT1, PURKAT2, and PURKATEL removed.
+	\item Variable MIG-CNT (county of previous residence) removed.
+	\item PECOHAB, PELNMOM, PELNDAD, PEMOMTYP, PEDADTYP, PXCOHAB, PXLNMOM, PXLNDAD, PXMOMTYP, and PXDADTYP added.
+	\begin{itemize}
+		\item PECOHAB - demographics line number of cohabiting partner
+		\item PELNMOM and PELNDAD - demographics line number of Mother/Father
+		\item{PEMOMTYP and PEDADTYP - demographics type of Mother/Father}
+		\item remaining items are allocation flags for the above variables
+	\end{itemize}
+	\item Topcodes are the same as used in 2006. 
+\end{itemize}
+	
+From 2007 to 2008:
+\begin{itemize}
+	\item Variables HCHI, HCHINNO, HCHINO, HCHINRH,
+	HCMCENO, HCMCARE removed. These variables pertain to the number of children in the household that are covered by different kinds of health insurance.
+	\item Topcodes are the same as prior year.
+\end{itemize}
+
+From 2008 to 2009:
+\begin{itemize}
+	\item New tax model item STIMULUS indicates dollar amount of federal stimulus payment received by the tax unit.
+	\item New person variables:
+	\begin{itemize}
+		\item PEDISEAR, PEDISEYE, PEDISREM,  PEDISPHY, PEDISDRS, PEDISOUT, and PRDISFLG are a set of indicators for different types of disabilities (hearing, sight, etc).
+		\item PXDISEAR, PXDISEYE, PXDISREM, PXDISPHY, PXDISDRS, and PXDISOUT are new allocation flags for the above. 
+	\end{itemize}
+\item Topcodes same as prior year.
+\end{itemize}
+	
+From 2009 to 2010:
+\begin{itemize}
+	\item Person variables removed:
+	\begin{itemize}
+		\item SCHOOLYN (GED prep class attendance indicator), JRYN (job readiness training attendance indicator), JCYN (job club attendance), JTYN (specific skill training program attendance), COMSRVYN (community service work program attendance), TRANYN (transportation assistance received), CCAYN (child care services received), and their respective allocation flags removed.
+	\end{itemize}
+	\item Household equivalents to the above variables also removed. Those indicated the number of individuals in a household participating in a program or receiving a particular type of assistance.
+	\item HUFAMINC (family income) replaced by HEFAMINC because variable has been edited for nonresponse.
+	\item CAP-GAIN and CAP-LOSS removed from person record.
+	\item STIMULUS removed from household record.
+	\item Two new tax model variables, ERP-VAL and MWP-VAL, give the dollar amounts for Economic Recovery Payment and Making Work Pay credit, respectively.
+	\item 5-year migration variables added. Last appeared in 2005.
+	\item Topcodes same as prior years.
+\end{itemize}
+	
+From 2010 to 2011:
+\begin{itemize}
+	\item Variable ERP-VAL (Economic Recovery Payment received, dollar amount) removed.
+	\item 5-year migration variables removed.
+	\item new person variable POV-UNIV (poverty universe indicator) added.
+	\item Topcoding method significantly revised. Old way was to change values above the topcode cutoff to the mean of all values above the cutoff, but now they swap values between sample cases that have values above the cutoff, preserving the distribution. This is called "rank proximal swapping". Swapped amounts are rounded to two significant digits.
+	\item Topcode amounts:
+	\begin{itemize}
+		\item ERN-VAL \$250,000
+		\item WS-VAL 47,000
+		\item SE-VAL 60,000
+		\item FRM-VAL 30,000
+		\item DIS-VAL1 48,000
+		\item RET-VAL1 64,000
+		\item INT-VAL 24,000
+		\item DIV-VAL 20,000
+		\item RNT-VAL 50,000
+		\item ED-VAL 30,000
+		\item CSP-VAL (child support received) 21,000
+		\item ALM-VAL 66,000
+		\item FIN-VAL 30,000
+		\item OI-VAL 30,000
+		\item CHSP-VAL (child support paid) 5,616
+	\end{itemize}
+\end{itemize}
+
+From 2011 to 2012:
+\begin{itemize}
+	\item Variable MWP-VAL removed. This was the value of Making Work Pay credit received. This credit was only provided in tax years 2009 and 2010.
+	\item New variable HPROP-VAL gives property value estimated. Allocation flag and topcode flag also added for this variable.
+	\item Topcode amounts:
+	\begin{itemize}
+		\item ERN-VAL \$250,000
+		\item WS-VAL 50,000
+		\item SE-VAL 60,000
+		\item FRM-VAL 30,000
+		\item DIS-VAL1 44,000
+		\item RET-VAL1 67,000
+		\item INT-VAL 22,000
+		\item DIV-VAL 20,000
+		\item RNT-VAL 60,000
+		\item ED-VAL 25,000
+		\item CSP-VAL (child support received) 18,300
+		\item ALM-VAL 96,000
+		\item FIN-VAL 36,000
+		\item OI-VAL 31,200
+		\item CHSP-VAL (child support paid) 5,600
+	\end{itemize}
+\end{itemize}
+
+From 2012 to 2013:
+\begin{itemize}
+	\item Variable PRDTRACE has new value of 26 for indicating that a person has 4 or 5 racial combinations. Variable PRDASIAN (detailed Asian subgroup) added.
+	\item Updated topcode thresholds:
+	\begin{itemize}
+		\item SE-VAL 75,000
+		\item FRM-VAL 35,000
+		\item DIS-VAL1 48,000
+		\item RET-VAL1 63,000
+		\item INT-VAL 23,800
+		\item DIV-VAL 25,300
+		\item RNT-VAL 60,000
+		\item ED-VAL 30,000
+		\item CSP-VAL (child support received) 18,400
+		\item FIN-VAL 50,000
+		\item OI-VAL 29,000
+		\item CHSP-VAL (child support paid) 5,400
+	\end{itemize}
+\end{itemize}
+
+From 2013 to 2014
+\begin{itemize}
+	\item Alimony variables all removed (HALM\_YN
+	HALMVAL FINC\_ALM FALMVAL ALM\_YN ALM\_VA	I\_ALMYN I\_ALMVAL TALM\_VAL). Now alimony is just part of "other income".
+	\item Updated topcode thresholds. Rank proximal swap procedure still the same.
+	\begin{itemize}
+		\item ERN-VAL \$250,000
+		\item WS-VAL	50,000 
+		\item SE-VAL 91,000
+		\item FRM-VAL 40,000  
+		\item SUR-VAL1 60,000
+		\item SUR-VAL2 99,999 
+		\item DIS-VAL1 38,388
+		\item DIS-VAL2 78,000
+		\item RET-VAL1 60,000
+		\item RET-VAL2 60,000
+		\item INT-VAL 69,400
+		\item DIV-VAL 30,000
+		\item RNT-VAL 35,000
+		\item ED-VAL 30,000
+		\item CSP-VAL 16,900
+		\item FIN-VAL 40,000
+		\item OI-VAL 70,000
+		\item CHSP-VAL 25,000
+	\end{itemize}
+\end{itemize}
+
+From 2014 to 2015:
+\begin{itemize}
+	\item Variable OI\_OFF (source of other income) has new value 20 which is the code for alimony
+	\item 5-year migration variables added.
+	\item Variable GESTCEN (Census state code) removed. Now only the state FIPS code is used.
+	\item Variables FFNGCARE and FFNGCAID removed. These held the family-level fungible values of medicare and medicaid, respectively.
+	\item Variables FFOODREQ and FHOUSEREQ removed. These were indicators used in computing the above fungible values. 
+	\item Variables P-MVCARE and P-MVCAID (person market value of medicare/medicaid) removed.
+	\item Updated topcode thresholds:
+	\begin{itemize}
+		\item ERN-VAL \$280,000
+		\item WS-VAL	56,000 
+		\item SE-VAL 100,000
+		\item FRM-VAL 40,000  
+		\item SUR-VAL1 67,000
+		\item SUR-VAL2 80,000 
+		\item DIS-VAL1 48,388
+		\item DIS-VAL2  n/a
+		\item RET-VAL1 66,000
+		\item RET-VAL2 66,000
+		\item INT-VAL 50,400
+		\item DIV-VAL 24,000
+		\item RNT-VAL 60,000
+		\item ED-VAL 36,000
+		\item CSP-VAL 17,000
+		\item FIN-VAL 40,000
+		\item OI-VAL 40,000
+		\item CHSP-VAL 20,000
+	\end{itemize}
+\end{itemize}
+
+From 2015 to 2016
+\begin{itemize}
+	\item 5-year migration variables removed.
+	\item Most current metropolitan area definitions updated.
+		\item Updated topcode thresholds:
+	\begin{itemize}
+		\item ERN-VAL \$300,000
+		\item WS-VAL	55,000 
+		\item SE-VAL 75,000
+		\item FRM-VAL 50,000  
+		\item SUR-VAL1 99,999
+		\item SUR-VAL2 99,999 
+		\item DIS-VAL1 51,600
+		\item DIS-VAL2  n/a
+		\item RET-VAL1 70,000
+		\item RET-VAL2 70,000
+		\item INT-VAL 33,873
+		\item DIV-VAL 24,000
+		\item RNT-VAL 50,000
+		\item ED-VAL 30,000
+		\item CSP-VAL 17,000
+		\item FIN-VAL 40,000
+		\item OI-VAL 41,952
+		\item CHSP-VAL 24,000
+	\end{itemize}
+\end{itemize}
+
+From 2016 to 2017:
+\begin{itemize}
+	\item Variables PECERT1, PECERT2, PECERT3 added. These contain information on whether a person has professional certifications, whether they are government-issued, and if they are required by the person's job. Allocation flags for these variables are added also. 
+	\item Updated topcode thresholds:
+	\begin{itemize}
+		\item ERN-VAL \$300,000
+		\item WS-VAL	55,000 
+		\item SE-VAL 100,000
+		\item FRM-VAL 45,000  
+		\item SUR-VAL1 65,000
+		\item SUR-VAL2 65,000 
+		\item DIS-VAL1 48,800
+		\item DIS-VAL2  n/a
+		\item RET-VAL1 69,600
+		\item RET-VAL2 69,600
+		\item INT-VAL 50,827
+		\item DIV-VAL 34,000
+		\item RNT-VAL 60,000
+		\item ED-VAL 40,000
+		\item CSP-VAL 18,200
+		\item FIN-VAL 42,000
+		\item OI-VAL 50,000
+		\item CHSP-VAL 24,000
+	\end{itemize}
+\end{itemize}
+
+From 2017 to 2018:
+\begin{itemize}
+	\item Updated topcode thresholds:
+	\begin{itemize}
+		\item ERN-VAL \$300,000
+		\item WS-VAL	56,000 
+		\item SE-VAL 85,000
+		\item FRM-VAL 65,000  
+		\item SUR-VAL1 99,999
+		\item SUR-VAL2 99,999 
+		\item DIS-VAL1 41,800
+		\item DIS-VAL2 41,800
+		\item RET-VAL1 72,600
+		\item RET-VAL2 72,600
+		\item INT-VAL 74,243
+		\item DIV-VAL 30,000
+		\item RNT-VAL 60,000
+		\item ED-VAL 40,000
+		\item CSP-VAL 21,600
+		\item FIN-VAL 35,000
+		\item OI-VAL 51,600
+		\item CHSP-VAL 24,000
+	\end{itemize}
+\end{itemize}
+
+Form 2018 to 2019:
+\begin{itemize}
+	\item There are MANY differences.
+	\item PERRP (relationship to householder) now divides spouse and unmarried 
+	categories into opposite-sex and same-sex groups (i.e., opposite-sex 
+	spouse/husband/wife, same-sex spouse/husband/wife, opposite-sex unmarried partner). 
+	\item PELNMOM and PELNDAD are now called PEPAR1 and PEPAR2.
+	\item There were changes to the weighting process due to updated demographic groups. These are covered in-depth in technical paper 66.
+	\item Variables were added for 
+	defined-benefit pension income and defined-contribution withdrawals (such as from 
+	401(k) plans) to replace the previous variables on retirement income.
+	\begin{itemize}
+		\item ANN\_VAL - annuities value
+		\item DST\_VAL1 and DST\_VAL2 - retirement distributions (non-Social-Security)
+		\item RINT\_VAL1 and RINT\_VAL2 - value of interest income on retirement sources. Indicators for the type of source are RINT\_SC1 and RINT\_SC2.
+		\item TRDINT\_VAL - interest amount, excluding retirement account interest.
+		\item RETCB\_VAL - retirement contribution amount.
+	\end{itemize}
+	\item Now there is only one household identifier (H\_IDNUM). To match to previous files, you must concatenate H\_IDNUM1 and H\_IDNUM2 to get one H\_IDNUM.
+	\item Updated topcode thresholds:
+	\begin{itemize}
+	\item ANN\_VAL \$60,000
+	\item CAP\_VAL \$51,500
+	\item CHSP\_VAL \$22,500 
+	\item CSP\_VAL \$20,400
+	\item DIS\_VAL1 \$54,000 
+	\item DIS\_VAL2 \$54,000
+	\item DIV\_VAL \$26,000 
+	\item DST\_VAL1 \$85,000
+	\item DST\_VAL2 \$85,000
+	\item DST\_VAL1\_YNG \$72,000
+	\item DST\_VAL2\_YNG \$72,000
+	\item ED\_VAL \$39,000 
+	\item ERN\_VAL \$310,000 
+	\item FIN\_VAL \$50,000 
+	\item FRM\_VAL \$35,000 
+	\item TRDINT\_VAL \$9,026
+	\item RINT\_VAL1 \$20,000
+	\item RINT\_VAL2 \$20,000
+	\item OI\_VAL \$40,000 
+	\item RNT\_VAL \$66,000 
+	\item SE\_VAL \$100,000
+	\item SUR\_VAL1 \$100,000
+	\item SUR\_VAL2 \$100,000
+	\item PEN\_VAL1 \$80,000
+	\item PEN\_VAL2 \$80,000
+	\item WS\_VAL \$60,000	
+	\end{itemize}
+\end{itemize}
+\end{document}
