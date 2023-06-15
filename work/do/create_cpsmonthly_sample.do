@@ -7,12 +7,12 @@
 clear 
 set more off
 
-global monthlypath "/home/c1mep01/Work/madison_cps/data/cpsmonthly"
+*global monthlypath "/home/c1mep01/Work/madison_cps/data/cpsmonthly"
 global datapath "/home/c1mep01/Work/madison_cps/data"
 
-
+global monthlypath "C:\Users\c1mep01\OneDrive - FR Banks\madison_cps\data\cpsmonthly"
 cd "$monthlypath"
-*cd "C:\Users\c1mep01\OneDrive - FR Banks\madison_cps\data\cpsmonthly"
+
 
 
 * read in the monthly CSVs and save as dta 
@@ -21,7 +21,7 @@ local x=202001
 while `x' <= 202303{
 clear
 
-import delimited "/home/c1mep01/Work/madison_cps/data/cpsmonthly/cpsm`x'.csv"
+import delimited "$monthlypath/cpsm`x'.csv"
 
 gen yearmth = `x'
 local year=round(`x'/100)
