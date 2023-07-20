@@ -1,0 +1,188 @@
+----------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\c1mep01\OneDrive - FR Banks\madison_cps\do\ctc_and_lfpr\panel_regresults
+> .log
+  log type:  text
+ opened on:  31 Mar 2023, 10:53:16
+
+. do "C:\Users\c1mep01\AppData\Local\Temp\STD1c44_000000.tmp"
+
+. 
+. xtreg LF postctc##haskid woman prtage peeduca state yearmth, fe 
+note: state omitted because of collinearity.
+
+Fixed-effects (within) regression               Number of obs     =     64,265
+Group variable: panelid                         Number of groups  =     19,538
+
+R-squared:                                      Obs per group:
+     Within  = 0.0008                                         min =          1
+     Between = 0.0246                                         avg =        3.3
+     Overall = 0.0214                                         max =          4
+
+                                                F(7,44720)        =       5.04
+corr(u_i, Xb) = 0.0524                          Prob > F          =     0.0000
+
+--------------------------------------------------------------------------------
+            LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     1.postctc |   .0032955   .0032998     1.00   0.318    -.0031722    .0097631
+      1.haskid |  -.0708469   .0217423    -3.26   0.001    -.1134622   -.0282317
+               |
+postctc#haskid |
+          1 1  |   .0160523     .01111     1.44   0.149    -.0057236    .0378281
+               |
+         woman |   -.081821   .0251608    -3.25   0.001    -.1311366   -.0325053
+        prtage |   .0002444    .000869     0.28   0.779    -.0014588    .0019476
+       peeduca |   .0005136   .0017419     0.29   0.768    -.0029005    .0039277
+         state |          0  (omitted)
+       yearmth |  -.0038549   .0014818    -2.60   0.009    -.0067592   -.0009505
+         _cons |   779.8606   299.4779     2.60   0.009     192.8788    1366.842
+---------------+----------------------------------------------------------------
+       sigma_u |  .40265143
+       sigma_e |  .18211407
+           rho |  .83017613   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+F test that all u_i=0: F(19537, 44720) = 14.81               Prob > F = 0.0000
+
+. 
+. xtreg LF postctc##hasyoungkid woman prtage peeduca state yearmth, fe 
+note: state omitted because of collinearity.
+
+Fixed-effects (within) regression               Number of obs     =     64,265
+Group variable: panelid                         Number of groups  =     19,538
+
+R-squared:                                      Obs per group:
+     Within  = 0.0006                                         min =          1
+     Between = 0.0163                                         avg =        3.3
+     Overall = 0.0151                                         max =          4
+
+                                                F(7,44720)        =       4.02
+corr(u_i, Xb) = 0.0269                          Prob > F          =     0.0002
+
+-------------------------------------------------------------------------------------
+                 LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------------+----------------------------------------------------------------
+          1.postctc |   .0027639   .0033689     0.82   0.412    -.0038393     .009367
+      1.hasyoungkid |  -.0262513   .0133009    -1.97   0.048    -.0523213   -.0001814
+                    |
+postctc#hasyoungkid |
+               1 1  |   .0050555   .0039866     1.27   0.205    -.0027584    .0128694
+                    |
+              woman |  -.0812783   .0251635    -3.23   0.001    -.1305993   -.0319574
+             prtage |   .0003039   .0008685     0.35   0.726    -.0013984    .0020062
+            peeduca |   .0010267   .0017363     0.59   0.554    -.0023764    .0044299
+              state |          0  (omitted)
+            yearmth |  -.0037747   .0014816    -2.55   0.011    -.0066787   -.0008707
+              _cons |   763.6312   299.4417     2.55   0.011     176.7203    1350.542
+--------------------+----------------------------------------------------------------
+            sigma_u |  .40388302
+            sigma_e |  .18212857
+                rho |  .83101316   (fraction of variance due to u_i)
+-------------------------------------------------------------------------------------
+F test that all u_i=0: F(19537, 44720) = 14.98               Prob > F = 0.0000
+
+. 
+. xtreg LF postctc##haskid##woman prtage peeduca state yearmth, fe 
+note: state omitted because of collinearity.
+
+Fixed-effects (within) regression               Number of obs     =     64,265
+Group variable: panelid                         Number of groups  =     19,538
+
+R-squared:                                      Obs per group:
+     Within  = 0.0009                                         min =          1
+     Between = 0.0243                                         avg =        3.3
+     Overall = 0.0213                                         max =          4
+
+                                                F(10,44717)       =       4.08
+corr(u_i, Xb) = 0.0517                          Prob > F          =     0.0000
+
+--------------------------------------------------------------------------------------
+                  LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+---------------------+----------------------------------------------------------------
+           1.postctc |   .0051797   .0036524     1.42   0.156    -.0019791    .0123386
+            1.haskid |  -.0728692   .0283865    -2.57   0.010    -.1285072   -.0172312
+                     |
+      postctc#haskid |
+                1 1  |   .0352225    .015374     2.29   0.022     .0050892    .0653557
+                     |
+             1.woman |  -.0795715   .0252331    -3.15   0.002    -.1290289   -.0301142
+                     |
+       postctc#woman |
+                1 1  |  -.0037376   .0030674    -1.22   0.223    -.0097497    .0022745
+                     |
+        haskid#woman |
+                1 1  |   .0046975   .0423876     0.11   0.912     -.078383     .087778
+                     |
+postctc#haskid#woman |
+              1 1 1  |  -.0403251   .0221816    -1.82   0.069    -.0838014    .0031512
+                     |
+              prtage |   .0002398    .000869     0.28   0.783    -.0014633     .001943
+             peeduca |   .0005507    .001742     0.32   0.752    -.0028635     .003965
+               state |          0  (omitted)
+             yearmth |  -.0038376   .0014818    -2.59   0.010    -.0067419   -.0009333
+               _cons |   776.3678   299.4732     2.59   0.010     189.3952     1363.34
+---------------------+----------------------------------------------------------------
+             sigma_u |  .40269134
+             sigma_e |  .18210895
+                 rho |    .830212   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------------
+F test that all u_i=0: F(19537, 44717) = 14.79               Prob > F = 0.0000
+
+. 
+. xtreg LF postctc##hasyoungkid##woman prtage peeduca state yearmth, fe 
+note: state omitted because of collinearity.
+
+Fixed-effects (within) regression               Number of obs     =     64,265
+Group variable: panelid                         Number of groups  =     19,538
+
+R-squared:                                      Obs per group:
+     Within  = 0.0008                                         min =          1
+     Between = 0.0196                                         avg =        3.3
+     Overall = 0.0183                                         max =          4
+
+                                                F(10,44717)       =       3.50
+corr(u_i, Xb) = 0.0357                          Prob > F          =     0.0001
+
+-------------------------------------------------------------------------------------------
+                       LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+                1.postctc |   .0061491   .0037665     1.63   0.103    -.0012333    .0135314
+            1.hasyoungkid |  -.0008868   .0197607    -0.04   0.964    -.0396181    .0378445
+                          |
+      postctc#hasyoungkid |
+                     1 1  |  -.0007473   .0058462    -0.13   0.898    -.0122059    .0107114
+                          |
+                  1.woman |  -.0731333   .0254139    -2.88   0.004    -.1229451   -.0233215
+                          |
+            postctc#woman |
+                     1 1  |  -.0067261   .0033493    -2.01   0.045    -.0132908   -.0001615
+                          |
+        hasyoungkid#woman |
+                     1 1  |  -.0457075   .0262178    -1.74   0.081    -.0970949    .0056799
+                          |
+postctc#hasyoungkid#woman |
+                   1 1 1  |   .0111325   .0079959     1.39   0.164    -.0045396    .0268046
+                          |
+                   prtage |   .0003141   .0008685     0.36   0.718    -.0013882    .0020164
+                  peeduca |   .0010698   .0017364     0.62   0.538    -.0023336    .0044731
+                    state |          0  (omitted)
+                  yearmth |  -.0037665   .0014816    -2.54   0.011    -.0066704   -.0008626
+                    _cons |   761.9701   299.4305     2.54   0.011     175.0812    1348.859
+--------------------------+----------------------------------------------------------------
+                  sigma_u |  .40330213
+                  sigma_e |  .18212087
+                      rho |  .83062043   (fraction of variance due to u_i)
+-------------------------------------------------------------------------------------------
+F test that all u_i=0: F(19537, 44717) = 14.88               Prob > F = 0.0000
+
+. 
+. 
+end of do-file
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\c1mep01\OneDrive - FR Banks\madison_cps\do\ctc_and_lfpr\panel_regresults
+> .log
+  log type:  text
+ closed on:  31 Mar 2023, 10:53:44
+----------------------------------------------------------------------------------------------

@@ -1,0 +1,354 @@
+----------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\c1mep01\OneDrive - FR Banks\madison_cps\do\ctc_and_lfpr\cs_regresults.lo
+> g
+  log type:  text
+ opened on:  31 Mar 2023, 10:54:30
+
+. do "C:\Users\c1mep01\AppData\Local\Temp\STD1c44_000000.tmp"
+
+. 
+. 
+. reghdfe LF advCTC##haskid woman prtage peeduca, absorb(yearmth gestfips)
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   5, 879156) =   14789.26
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0836
+                                                  Adj R-squared   =     0.0835
+                                                  Within R-sq.    =     0.0776
+                                                  Root MSE        =     0.4148
+
+-------------------------------------------------------------------------------
+           LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+     1.advCTC |          0  (omitted)
+     1.haskid |  -.3450463   .0039698   -86.92   0.000     -.352827   -.3372655
+              |
+advCTC#haskid |
+         1 1  |  -.0084534   .0064619    -1.31   0.191    -.0211186    .0042118
+              |
+        woman |  -.1155928   .0008875  -130.24   0.000    -.1173324   -.1138533
+       prtage |  -.0020816   .0000332   -62.63   0.000    -.0021467   -.0020164
+      peeduca |    .034686   .0001774   195.47   0.000     .0343382    .0350338
+        _cons |  -.5091411    .007275   -69.99   0.000    -.5233998   -.4948823
+-------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+. reghdfe LF advCTC##hasyoungkid woman prtage peeduca, absorb(yearmth gestfips)
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   5, 879156) =   12388.58
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0719
+                                                  Adj R-squared   =     0.0719
+                                                  Within R-sq.    =     0.0658
+                                                  Root MSE        =     0.4175
+
+------------------------------------------------------------------------------------
+                LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+          1.advCTC |          0  (omitted)
+     1.hasyoungkid |   .0163175   .0014503    11.25   0.000      .013475    .0191599
+                   |
+advCTC#hasyoungkid |
+              1 1  |   .0028101    .002408     1.17   0.243    -.0019095    .0075298
+                   |
+             woman |  -.1169288   .0008937  -130.84   0.000    -.1186804   -.1151773
+            prtage |   -.001137   .0000331   -34.32   0.000     -.001202   -.0010721
+           peeduca |   .0383526   .0001751   218.99   0.000     .0380094    .0386959
+             _cons |  -.7069211   .0070963   -99.62   0.000    -.7208297   -.6930125
+------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+. reghdfe LF advCTC##haskid##woman prtage peeduca, absorb(yearmth gestfips)
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   8, 879153) =    9321.48
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0842
+                                                  Adj R-squared   =     0.0841
+                                                  Within R-sq.    =     0.0782
+                                                  Root MSE        =     0.4147
+
+-------------------------------------------------------------------------------------
+                 LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------------+----------------------------------------------------------------
+           1.advCTC |          0  (omitted)
+           1.haskid |  -.4155969   .0053846   -77.18   0.000    -.4261504   -.4050433
+                    |
+      advCTC#haskid |
+               1 1  |  -.0082432   .0089329    -0.92   0.356    -.0257514    .0092651
+                    |
+            1.woman |  -.1189411   .0011139  -106.78   0.000    -.1211243    -.116758
+                    |
+       advCTC#woman |
+               1 1  |   .0006342   .0018708     0.34   0.735    -.0030325    .0043009
+                    |
+       haskid#woman |
+               1 1  |   .1486984   .0076646    19.40   0.000      .133676    .1637207
+                    |
+advCTC#haskid#woman |
+             1 1 1  |  -.0010878   .0129339    -0.08   0.933    -.0264378    .0242622
+                    |
+             prtage |  -.0020795   .0000332   -62.58   0.000    -.0021446   -.0020144
+            peeduca |   .0347183   .0001774   195.71   0.000     .0343706     .035066
+              _cons |  -.5089495   .0072726   -69.98   0.000    -.5232035   -.4946954
+-------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+. reghdfe LF advCTC##hasyoungkid##woman prtage peeduca, absorb(yearmth gestfips)
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   8, 879153) =    8366.02
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0768
+                                                  Adj R-squared   =     0.0767
+                                                  Within R-sq.    =     0.0707
+                                                  Root MSE        =     0.4164
+
+------------------------------------------------------------------------------------------
+                      LF | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------------------+----------------------------------------------------------------
+                1.advCTC |          0  (omitted)
+           1.hasyoungkid |   .1009256   .0021001    48.06   0.000     .0968094    .1050418
+                         |
+      advCTC#hasyoungkid |
+                    1 1  |  -.0006868   .0035201    -0.20   0.845    -.0075862    .0062125
+                         |
+                 1.woman |  -.0878747   .0012246   -71.76   0.000    -.0902748   -.0854745
+                         |
+            advCTC#woman |
+                    1 1  |  -.0008309   .0020562    -0.40   0.686    -.0048609    .0031991
+                         |
+       hasyoungkid#woman |
+                    1 1  |  -.1594214   .0028624   -55.70   0.000    -.1650315   -.1538113
+                         |
+advCTC#hasyoungkid#woman |
+                  1 1 1  |   .0064249   .0048161     1.33   0.182    -.0030145    .0158643
+                         |
+                  prtage |  -.0012215   .0000331   -36.94   0.000    -.0012863   -.0011567
+                 peeduca |   .0382438   .0001747   218.94   0.000     .0379015    .0385862
+                   _cons |  -.7133617   .0070782  -100.78   0.000    -.7272348   -.6994885
+------------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+end of do-file
+
+. do "C:\Users\c1mep01\AppData\Local\Temp\STD1c44_000000.tmp"
+
+. ** Intensive margin 
+. * PEHRUSL1 - how many hours per week do you usually work at your main job
+. * PEHRFTPT - are you usually working fulltime 
+. * PEHRACT1 - how many hours last week did you actually work at your job?
+. 
+. reghdfe pehrusl1 advCTC##haskid woman prtage peeduca, absorb(yearmth gestfips) // am I actua
+> lly doing this right?
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   5, 879156) =   16868.96
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0932
+                                                  Adj R-squared   =     0.0932
+                                                  Within R-sq.    =     0.0875
+                                                  Root MSE        =    19.9021
+
+-------------------------------------------------------------------------------
+     pehrusl1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+     1.advCTC |          0  (omitted)
+     1.haskid |  -14.48861    .190461   -76.07   0.000     -14.8619   -14.11531
+              |
+advCTC#haskid |
+         1 1  |  -.5955838   .3100257    -1.92   0.055    -1.203224    .0120563
+              |
+        woman |  -6.378412   .0425819  -149.79   0.000    -6.461872   -6.294953
+       prtage |   .0096705   .0015946     6.06   0.000      .006545     .012796
+      peeduca |   1.791274   .0085134   210.41   0.000     1.774588     1.80796
+        _cons |  -43.90344   .3490325  -125.79   0.000    -44.58753   -43.21935
+-------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+. reghdfe pehract1 advCTC##haskid woman prtage peeduca, absorb(yearmth gestfips)
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   5, 879156) =   17426.65
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0954
+                                                  Adj R-squared   =     0.0954
+                                                  Within R-sq.    =     0.0902
+                                                  Root MSE        =    19.8269
+
+-------------------------------------------------------------------------------
+     pehract1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+     1.advCTC |          0  (omitted)
+     1.haskid |  -14.66253   .1897415   -77.28   0.000    -15.03442   -14.29065
+              |
+advCTC#haskid |
+         1 1  |  -.7994224   .3088546    -2.59   0.010    -1.404767   -.1940777
+              |
+        woman |  -7.228048   .0424211  -170.39   0.000    -7.311192   -7.144904
+       prtage |   .0110939   .0015886     6.98   0.000     .0079802    .0142075
+      peeduca |   1.713127   .0084812   201.99   0.000     1.696504     1.72975
+        _cons |  -40.05634   .3477141  -115.20   0.000    -40.73785   -39.37483
+-------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+. reghdfe pehrusl1 advCTC##hasyoungkid woman prtage peeduca, absorb(yearmth gestfips) 
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   5, 879156) =   15060.63
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0846
+                                                  Adj R-squared   =     0.0846
+                                                  Within R-sq.    =     0.0789
+                                                  Root MSE        =    19.9961
+
+------------------------------------------------------------------------------------
+          pehrusl1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+          1.advCTC |          0  (omitted)
+     1.hasyoungkid |    1.26564   .0694662    18.22   0.000     1.129488    1.401791
+                   |
+advCTC#hasyoungkid |
+              1 1  |   .0829449   .1153434     0.72   0.472    -.1431243     .309014
+                   |
+             woman |  -6.449238   .0428054  -150.66   0.000    -6.533135   -6.365341
+            prtage |   .0526943    .001587    33.20   0.000     .0495838    .0558047
+           peeduca |   1.943923   .0083889   231.73   0.000     1.927481    1.960365
+             _cons |  -52.39171   .3399092  -154.13   0.000    -53.05792    -51.7255
+------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+. reghdfe pehract1 advCTC##hasyoungkid woman prtage peeduca, absorb(yearmth gestfips)
+note: 1bn.advCTC is probably collinear with the fixed effects (all partialled-out values are c
+> lose to zero; tol = 1.0e-09)
+(MWFE estimator converged in 3 iterations)
+note: 1.advCTC omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =    879,225
+Absorbing 2 HDFE groups                           F(   5, 879156) =   15460.88
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0861
+                                                  Adj R-squared   =     0.0861
+                                                  Within R-sq.    =     0.0808
+                                                  Root MSE        =    19.9285
+
+------------------------------------------------------------------------------------
+          pehract1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+          1.advCTC |          0  (omitted)
+     1.hasyoungkid |   .7320762   .0692314    10.57   0.000      .596385    .8677673
+                   |
+advCTC#hasyoungkid |
+              1 1  |   .1504318   .1149534     1.31   0.191     -.074873    .3757366
+                   |
+             woman |  -7.286483   .0426607  -170.80   0.000    -7.370097    -7.20287
+            prtage |   .0518844   .0015816    32.80   0.000     .0487845    .0549844
+           peeduca |   1.870328   .0083605   223.71   0.000     1.853942    1.886714
+             _cons |  -48.55579     .33876  -143.33   0.000    -49.21975   -47.89184
+------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     yearmth |        14           0          14     |
+    gestfips |        51           1          50     |
+-----------------------------------------------------+
+
+. 
+end of do-file
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\c1mep01\OneDrive - FR Banks\madison_cps\do\ctc_and_lfpr\cs_regresults.lo
+> g
+  log type:  text
+ closed on:  31 Mar 2023, 10:55:40
+----------------------------------------------------------------------------------------------
