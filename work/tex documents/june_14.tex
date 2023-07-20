@@ -1,0 +1,311 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage[margin=1.0in]{geometry}
+\setlength{\parskip}{1em}
+
+%% some of Shigeru's custom commands, borrowed bc I am putting some of his tables alongside mine and I don't know what's custom and what isn't.
+
+%\addtolength{\textheight}{1in}
+\newcommand{\olsec}{VI.}
+
+% \bibpunct{(}{)}{,}{a}{,}{,}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\newcommand{\mct}[1]{\multicolumn{1}{c}{#1}}
+\newcommand{\rr}[1]{\multicolumn{1}{r|}{#1}}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+\newcommand{\mr}[3]{\multirow{#1}{#2}{#3}}
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\wk}{\cellcolor[gray]{0.92}}
+\newcommand{\md}{\cellcolor[gray]{0.8}}
+\newcommand{\strg}{\cellcolor[gray]{0.5}}
+
+\newcommand{\wid}[1]{8cm}
+\newcommand{\hi}[1]{6cm}
+
+
+%% end of header
+\title{Comparing quintiles and fixed categories}
+\author{Madison informal notes}
+\date{June 14, 2023}
+
+\begin{document}
+	\maketitle
+	
+	\section{no exclusion}
+	
+	\subsection{fixed categories}	
+	\begin{table}[!h]
+		\centering
+		\caption{LFPRs by actual family income category, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+				$-$ 24,999\hspace{0.1cm} 		&	&	35.9	&	34.1	&	33.8	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&	&	53.8	&	53.3	&	52.8	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	& &	 65.5	&	65.7	&	65.7	\\
+			100,000 $-$ 149,999\hspace{0.6mm}& &	73.5	&	73.1	&	73.0	\\
+			150,000 $-$ 	\hspace{1.4cm}	& 	&	76.5	&	77.3	&	77.6	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&	&	62.8	&	62.1	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.5 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&		&	38.0	&	38.0	&	37.3	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&		&	56.0	&	55.2	&	55.7	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	&		&	63.1	&	63.0	&	63.1	\\
+			100,000 $-$ 149,999\hspace{0.6mm}&		&	72.8	&	73.0	&	72.7	\\
+			150,000 $-$ 	\hspace{1.4cm}	&		&	77.6	&	77.7	&	77.8	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&		&	62.8	&	62.1	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.4 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+		\subsection{quintiles}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income quintile \label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&	&	39.9	&	38.4	&	38.1	\\	
+			Second \hspace{0.1cm}  	&	&	56.2	&	56.6	&	56.2	\\
+			Middle \hspace{0.1cm}	& &	 63.0	&	64.0	&	64.7	\\
+			Fourth \hspace{0.1cm}	& &	71.2	&	70.6	&	71.0	\\
+			Highest \hspace{0.1cm}	& 	&	76.0	&	76.7	&	77.0	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&	&	62.8	&	62.1	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.5 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income quintile\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 	&		&	44.1	&	43.5	&	43.3	\\	
+			Second \hspace{0.1cm}  	&		&	56.9	&	56.8	&	57.3	\\
+			Middle \hspace{0.1cm}	&		&	61.2	&	61.1	&	61.7	\\
+			Fourth \hspace{0.1cm}	&		&	68.8	&	69.1	&	69.8	\\
+			Highest \hspace{0.1cm}	&		&	76.5 	&	76.9	&	77.0	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&	&	62.8	&	62.1	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.5 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	
+\section{Prime age only}
+	
+		\subsection{fixed categories}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income category, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&	&	49.9	&	47.2	&	48.3	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&	&	73.1	&	72.9	&	72.8	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	& &	 81.8	&	81.6	&	82.1	\\
+			100,000 $-$ 149,999\hspace{0.6mm}& &	87.3	&	86.7	&	87.2	\\
+			150,000 $-$ 	\hspace{1.4cm}	& 	&	89.2	&	89.3	&	88.9	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&	&	79.3	&	78.4	&	79.5	\\	\bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 25-64 from the March Supplements}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&		&	55.0	&	53.6	&	54.7	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&		&	74.7	&	74.2	&	75.4	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	&		&	79.4	&	79.0	&	79.9	\\
+			100,000 $-$ 149,999\hspace{0.6mm}&		&	85.7	&	85.1	&	85.4	\\
+			150,000 $-$ 	\hspace{1.4cm}	&		&	88.4	&	88.3	&	88.2	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&		&	79.3	&	78.4	&	79.5	\\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 25-64 from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	\subsection{quintiles}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income quintile \label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&	&	55.4	& 53.5	&	54.5	\\	
+			Second \hspace{0.1cm}  	&	&	75.1	&	75.5	&	75.4	\\
+			Middle \hspace{0.1cm}	& &	 80.3	&	80.4	&	81.6	\\
+			Fourth \hspace{0.1cm}	& &	85.9	&	85.1	&	85.9	\\
+			Highest \hspace{0.1cm}	& 	&	88.8	&	89.0	&	89.5	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&	&	79.3	&	78.4	&	79.5	\\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 25-64 from the March Supplements.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income quintile\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 	&		&	61.8	&	60.5	&	62.0	\\	
+			Second \hspace{0.1cm}  	&		&	76.1	&	75.9	&	76.8	\\
+			Middle \hspace{0.1cm}	&		&	78.3	&	77.6	&	79.0	\\
+			Fourth \hspace{0.1cm}	&		&	82.7	&	83.1	&	83.6	\\
+			Highest \hspace{0.1cm}	&		&	87.9 	&	87.5	&	87.9	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&	&	79.3	&	78.4	&	79.5	\\	 \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 25-64 from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	
+	\section{Exclude cases where all persons in HH are retired}
+	
+	\subsection{Fixed categories}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income category, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&	&	49.9	&	47.2	&	48.3	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&	&	73.1	&	72.9	&	72.8	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	& &	 81.8	&	81.6	&	82.1	\\
+			100,000 $-$ 149,999\hspace{0.6mm}& &	87.3	&	86.7	&	87.2	\\
+			150,000 $-$ 	\hspace{1.4cm}	& 	&	89.2	&	89.3	&	88.9	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&	&	79.3	&	78.4	&	79.5	\\	\bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants from the March Supplements, excluding cases where all persons in HH are retirees.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&		&	55.0	&	53.6	&	54.7	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&		&	74.7	&	74.2	&	75.4	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	&		&	79.4	&	79.0	&	79.9	\\
+			100,000 $-$ 149,999\hspace{0.6mm}&		&	85.7	&	85.1	&	85.4	\\
+			150,000 $-$ 	\hspace{1.4cm}	&		&	88.4	&	88.3	&	88.2	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&		&	79.3	&	78.4	&	79.5	\\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants from the March Supplements, excluding cases where all persons in HH are retirees. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	\subsection{Quintiles}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income quintile \label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&	&	55.4	& 53.5	&	54.5	\\	
+			Second \hspace{0.1cm}  	&	&	75.1	&	75.5	&	75.4	\\
+			Middle \hspace{0.1cm}	& &	 80.3	&	80.4	&	81.6	\\
+			Fourth \hspace{0.1cm}	& &	85.9	&	85.1	&	85.9	\\
+			Highest \hspace{0.1cm}	& 	&	88.8	&	89.0	&	89.5	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&	&	79.3	&	78.4	&	79.5	\\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants from the March Supplements, excluding cases where all persons in HH are retirees.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income quintile\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 	&		&	61.8	&	60.5	&	62.0	\\	
+			Second \hspace{0.1cm}  	&		&	76.1	&	75.9	&	76.8	\\
+			Middle \hspace{0.1cm}	&		&	78.3	&	77.6	&	79.0	\\
+			Fourth \hspace{0.1cm}	&		&	82.7	&	83.1	&	83.6	\\
+			Highest \hspace{0.1cm}	&		&	87.9 	&	87.5	&	87.9	\\ \midrule
+			\mct{Overall (ASEC, 25-64)}			&	&	79.3	&	78.4	&	79.5	\\	 \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants from the March Supplements excluding cases where all persons in HH are retirees. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	
+	
+	
+\end{document}	

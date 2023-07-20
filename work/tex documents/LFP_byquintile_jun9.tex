@@ -1,0 +1,335 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage[margin=1.0in]{geometry}
+\setlength{\parskip}{1em}
+
+%% some of Shigeru's custom commands, borrowed bc I am putting some of his tables alongside mine and I don't know what's custom and what isn't.
+
+%\addtolength{\textheight}{1in}
+\newcommand{\olsec}{VI.}
+
+% \bibpunct{(}{)}{,}{a}{,}{,}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\newcommand{\mct}[1]{\multicolumn{1}{c}{#1}}
+\newcommand{\rr}[1]{\multicolumn{1}{r|}{#1}}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+\newcommand{\mr}[3]{\multirow{#1}{#2}{#3}}
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\wk}{\cellcolor[gray]{0.92}}
+\newcommand{\md}{\cellcolor[gray]{0.8}}
+\newcommand{\strg}{\cellcolor[gray]{0.5}}
+
+\newcommand{\wid}[1]{8cm}
+\newcommand{\hi}[1]{6cm}
+
+
+%% end of header
+\title{Labor force participation by imputed family income quintile}
+\author{Madison informal notes}
+\date{June 12, 2023}
+
+\begin{document}
+	\maketitle
+	
+	 
+	The following tables show the percent of each year's sample that falls into each fixed income category: 
+	
+	\begin{minipage}[b]{.40\textwidth}
+		\centering
+		\begin{tabular}{lllll}
+			\cline{1-4}
+			\multicolumn{1}{c}{Actual} &
+			\multicolumn{3}{|c}{year} \\
+			\multicolumn{1}{c}{Family Income} &
+			\multicolumn{1}{|r}{2020} &
+			\multicolumn{1}{r}{2021} &
+			\multicolumn{1}{r}{2022}  \\
+			\cline{1-4}
+			\multicolumn{1}{c}{$-$ 24,999} &
+			\multicolumn{1}{|r}{14.0} &
+			\multicolumn{1}{r}{15.1} &
+			\multicolumn{1}{r}{14.6} \\
+			\multicolumn{1}{l}{25,000 $-$ 49,999} &
+			\multicolumn{1}{|r}{18.6} &
+			\multicolumn{1}{r}{18.8} &
+			\multicolumn{1}{r}{17.8} \\
+			\multicolumn{1}{l}{50,000 $-$ 99,999} &
+			\multicolumn{1}{|r}{29.1} &
+			\multicolumn{1}{r}{29.0} &
+			\multicolumn{1}{r}{28.1}  \\
+			\multicolumn{1}{l}{100,000 $-$ 149,999} &
+			\multicolumn{1}{|r}{16.9} &
+			\multicolumn{1}{r}{16.5} &
+			\multicolumn{1}{r}{16.8} \\
+			\multicolumn{1}{l}{150,000 $-$} &
+			\multicolumn{1}{|r}{21.3} &
+			\multicolumn{1}{r}{20.7} &
+			\multicolumn{1}{r}{22.7} \\
+			\cline{1-4}
+		\end{tabular}
+	\end{minipage}\qquad
+	\begin{minipage}[b]{.40\textwidth}
+		\centering
+		\begin{tabular}{lllll}
+			\cline{1-4}
+			\multicolumn{1}{c}{Predicted} &
+			\multicolumn{3}{|c}{year} \\
+			\multicolumn{1}{c}{Family Income} &
+			\multicolumn{1}{|r}{2020} &
+			\multicolumn{1}{r}{2021} &
+			\multicolumn{1}{r}{2022} \\
+			\cline{1-4}
+			\multicolumn{1}{c}{$-$ 24,999} &
+			\multicolumn{1}{|r}{10.6} &
+			\multicolumn{1}{r}{11.7} &
+			\multicolumn{1}{r}{11.6} \\
+			\multicolumn{1}{l}{25,000 $-$ 49,999} &
+			\multicolumn{1}{|r}{22.8} &
+			\multicolumn{1}{r}{24.2} &
+			\multicolumn{1}{r}{22.6} \\
+			\multicolumn{1}{l}{50,000 $-$ 99,999} &
+			\multicolumn{1}{|r}{31.2} &
+			\multicolumn{1}{r}{30.2} &
+			\multicolumn{1}{r}{29.8} \\
+			\multicolumn{1}{l}{100,000 $-$ 149,999} &
+			\multicolumn{1}{|r}{17.8} &
+			\multicolumn{1}{r}{16.5} &
+			\multicolumn{1}{r}{16.5} \\
+			\multicolumn{1}{l}{150,000 $-$} &
+			\multicolumn{1}{|r}{17.6} &
+			\multicolumn{1}{r}{17.5} &
+			\multicolumn{1}{r}{19.5} \\
+			\cline{1-4}
+		\end{tabular}
+	\end{minipage}
+	
+	Notice that the fixed thresholds don't cut the sample into equal proportions and that the proportional split changes slightly from year to year. The imputation model also allocates fewer people to the lowest income category than the actual ASEC data shows. 
+	
+	The two tables below show the lower threshold values for each quintile.
+	
+	\begin{minipage}[b]{.40\textwidth}
+		\centering
+		Actual
+		\centering
+		\begin{tabular}{llll}
+			\cline{1-4}
+			\multicolumn{1}{c}{} &
+			\multicolumn{3}{|c}{Year} \\
+			\multicolumn{1}{c}{} &
+			\multicolumn{1}{|r}{2020} &
+			\multicolumn{1}{r}{2021} &
+			\multicolumn{1}{r}{2022} \\
+			\cline{1-4}
+			\multicolumn{1}{l}{Quintile} &
+			\multicolumn{1}{|r}{} &
+			\multicolumn{1}{r}{} &
+			\multicolumn{1}{r}{} \\
+			\multicolumn{1}{l}{\hspace{1em}1} &
+			\multicolumn{1}{|r}{1} &
+			\multicolumn{1}{r}{1} &
+			\multicolumn{1}{r}{1} \\
+			\multicolumn{1}{l}{\hspace{1em}2} &
+			\multicolumn{1}{|r}{31,979} &
+			\multicolumn{1}{r}{32,304} &
+			\multicolumn{1}{r}{32,698} \\
+			\multicolumn{1}{l}{\hspace{1em}3} &
+			\multicolumn{1}{|r}{52,286} &
+			\multicolumn{1}{r}{52,608} &
+			\multicolumn{1}{r}{53,428} \\
+			\multicolumn{1}{l}{\hspace{1em}4} &
+			\multicolumn{1}{|r}{79,765} &
+			\multicolumn{1}{r}{80,515} &
+			\multicolumn{1}{r}{82,758} \\
+			\multicolumn{1}{l}{\hspace{1em}5} &
+			\multicolumn{1}{|r}{121,403} &
+			\multicolumn{1}{r}{125,150} &
+			\multicolumn{1}{r}{130,180} \\
+			\cline{1-4}
+		\end{tabular}
+	\end{minipage}\qquad
+	\begin{minipage}[b]{.40\textwidth}
+		\centering
+		Predicted	
+		\begin{tabular}{llll}
+			\cline{1-4}
+			\multicolumn{1}{c}{} &
+			\multicolumn{3}{|c}{Year} \\
+			\multicolumn{1}{c}{} &
+			\multicolumn{1}{|r}{2020} &
+			\multicolumn{1}{r}{2021} &
+			\multicolumn{1}{r}{2022} \\
+			\cline{1-4}
+			\multicolumn{1}{l}{Quintile} &
+			\multicolumn{1}{|r}{} &
+			\multicolumn{1}{r}{} &
+			\multicolumn{1}{r}{} \\
+			\multicolumn{1}{l}{\hspace{1em}1} &
+			\multicolumn{1}{|r}{6,028} &
+			\multicolumn{1}{r}{6,650} &
+			\multicolumn{1}{r}{4,532} \\
+			\multicolumn{1}{l}{\hspace{1em}2} &
+			\multicolumn{1}{|r}{32,164} &
+			\multicolumn{1}{r}{32,497} &
+			\multicolumn{1}{r}{32,755} \\
+			\multicolumn{1}{l}{\hspace{1em}3} &
+			\multicolumn{1}{|r}{52,130} &
+			\multicolumn{1}{r}{52,309} &
+			\multicolumn{1}{r}{53,267} \\
+			\multicolumn{1}{l}{\hspace{1em}4} &
+			\multicolumn{1}{|r}{79,184} &
+			\multicolumn{1}{r}{79,774} &
+			\multicolumn{1}{r}{82,286} \\
+			\multicolumn{1}{l}{\hspace{1em}5} &
+			\multicolumn{1}{|r}{119,882} &
+			\multicolumn{1}{r}{123,119} &
+			\multicolumn{1}{r}{129,165} \\
+			\cline{1-4}
+		\end{tabular}
+	\end{minipage}
+	
+	
+	\section{Verifying model w/ ASEC}
+	
+	Now, I re-run the computations of labor force participation by income group, using quintiles instead of the fixed categories.         
+	\subsection{No exclusions}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income quintile \label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&	&	39.9	&	38.4	&	38.1	\\	
+			Second \hspace{0.1cm}  	&	&	56.2	&	56.6	&	56.2	\\
+			Middle \hspace{0.1cm}	& &	 63.0	&	64.0	&	64.7	\\
+			Fourth \hspace{0.1cm}	& &	71.2	&	70.6	&	71.0	\\
+			Highest \hspace{0.1cm}	& 	&	76.0	&	76.7	&	77.0	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&	&	62.8	&	62.1	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.5 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income quintile\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 	&		&	44.1	&	43.5	&	43.3	\\	
+			Second \hspace{0.1cm}  	&		&	56.9	&	56.8	&	57.3	\\
+			Middle \hspace{0.1cm}	&		&	61.2	&	61.1	&	61.7	\\
+			Fourth \hspace{0.1cm}	&		&	68.8	&	69.1	&	69.8	\\
+			Highest \hspace{0.1cm}	&		&	76.5 	&	76.9	&	77.0	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&	&	62.8	&	62.1	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.5 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	\subsection{Exclude 2-person retiree households \& people with missing predicted values}	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by actual family income quintile, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile  	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&	&	44.4	&	42.4	&	41.9	\\	
+			Second \hspace{0.1cm}  	&	&	63.5	&	64.4	&	64.3	\\
+			Middle \hspace{0.1cm}	& &	 69.9	&	70.9	&	71.6	\\
+			Fourth \hspace{0.1cm}	& &	76.0	&	75.6	&	76.0	\\
+			Highest \hspace{0.1cm}	& 	&	79.2	&	79.5	&	80.1	\\ \midrule
+			\mct{Overall}			&	&	67.8	&	67.1	&	67.6  \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements, excluding individuals from 2-person households wherein both people are retired.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income quintile, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&		&	47.0	&	46.9	&	46.5	\\	
+			Second \hspace{0.1cm}  	&		&	64.5	&	64.1	&	65.4	\\
+			Middle \hspace{0.1cm}	&		&	69.0	&	69.1	&	69.5	\\
+			Fourth \hspace{0.1cm} &		&	74.5	&	75.0	&	75.5	\\
+			Highest \hspace{0.1cm}	&		&	78.3	&	78.2	&	78.7	\\ \midrule
+			\mct{Overall}			&		&	67.8	&	67.1	&	67.6	\\	\bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+
+	
+	Having applied the imputation model to the Basic monthly data, Table 5 shows the same computations as above, only on the people who appear in the March Basic data. 
+	
+	
+	\begin{table}[H]
+		\centering
+		\caption{LFPRs by predicted family income quintile, Basic March\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income quintile 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			Lowest \hspace{0.1cm} 		&		&	52.5	&	50.9	&	51.1	\\	
+			Second \hspace{0.1cm}  	&		&	63.1	&	61.7	&	62.5	\\
+			Middle \hspace{0.1cm}	&		&	66.3	&	66.0	&	66.3	\\
+			Fourth \hspace{0.1cm} 	&		&	73.3	&	73.3	&	73.1	\\
+			Highest \hspace{0.1cm}	&		&	78.5	&	77.9	&	77.5	\\ \midrule
+			\mct{Overall}			&		&	66.8	&	65.6	&	66.1 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Basic, excluding individuals from 2-person households wherin both people are retired. Income groups are defined using the predicted values of ftotval for the Basic monthly observations.}
+		\end{minipage}
+	\end{table}
+	
+	My only explanation for the gap between the ASEC LFPRs and Basic LFPRs would be that the people in the Basic are a subset of the people in the ASEC. ASEC has additional groups added in order to improve national representation and, for some reason, the subset of those individuals who appear in the March Basic survey have slightly different patterns in labor force participation by income category.
+	
+	\section{LFPR by income, monthly frequency}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"C:/Users/c1mep01/OneDrive - FR Banks/childtaxcredit_proj_sfmp/work/New Folder/plot_monthly_lfpr1"}
+	\caption{16+ CPS Basic sample, excluding 2-person retiree households}
+	\label{fig:plotmonthlylfpr1}
+\end{figure}
+Madison's questions:
+\begin{itemize}
+	\item  Why did we switch from using fixed thresholds to define income categories to now using quintiles?
+	\item 	Why is the gap between the LFPRs for the bottom actual and predicted rates bigger when we use quintiles than when we use fixed income thresholds? 
+	\item What should I do next?
+\end{itemize}
+\end{document}

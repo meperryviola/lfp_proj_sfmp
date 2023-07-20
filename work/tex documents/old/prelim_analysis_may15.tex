@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage[margin=1.25in]{geometry}
+\setlength{\parskip}{1em}
+
+\title{Preliminary analysis - expanded child tax credit project}
+\author{Madison Perry}
+\date{May 16, 2023}
+
+\begin{document}
+	\maketitle
+	
+\begin{table}[!h]
+	\centering
+	\caption{Lowest income quintile}
+\begin{tabular}{lll}
+	\cline{1-3}
+	\multicolumn{1}{c}{} &
+	\multicolumn{2}{|c}{2021} \\
+	\multicolumn{1}{c}{} &
+	\multicolumn{1}{|r}{Pre-July} &
+	\multicolumn{1}{r}{Post-July} \\
+	\cline{1-3}
+	\multicolumn{1}{l}{Number of kids} &
+	\multicolumn{1}{|r}{} &
+	\multicolumn{1}{r}{} \\
+	\multicolumn{1}{l}{\hspace{1em}None} &
+	\multicolumn{1}{|r}{0.42} &
+	\multicolumn{1}{r}{0.41} \\
+	\multicolumn{1}{l}{\hspace{1em}1} &
+	\multicolumn{1}{|r}{0.60} &
+	\multicolumn{1}{r}{0.62} \\
+	\multicolumn{1}{l}{\hspace{1em}2-3} &
+	\multicolumn{1}{|r}{0.60} &
+	\multicolumn{1}{r}{0.63} \\
+	\multicolumn{1}{l}{\hspace{1em}4+} &
+	\multicolumn{1}{|r}{0.59} &
+	\multicolumn{1}{r}{0.58} \\
+	\cline{1-3}
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+		\caption{Second income quintile}
+\begin{tabular}{lll}
+	\cline{1-3}
+	\multicolumn{1}{c}{} &
+	\multicolumn{2}{|c}{2021} \\
+	\multicolumn{1}{c}{} &
+	\multicolumn{1}{|r}{Pre-July} &
+	\multicolumn{1}{r}{Post-July} \\
+	\cline{1-3}
+	\multicolumn{1}{l}{Number of kids} &
+	\multicolumn{1}{|r}{} &
+	\multicolumn{1}{r}{} \\
+	\multicolumn{1}{l}{\hspace{1em}None} &
+	\multicolumn{1}{|r}{0.52} &
+	\multicolumn{1}{r}{0.53} \\
+	\multicolumn{1}{l}{\hspace{1em}1} &
+	\multicolumn{1}{|r}{0.68} &
+	\multicolumn{1}{r}{0.69} \\
+	\multicolumn{1}{l}{\hspace{1em}2-3} &
+	\multicolumn{1}{|r}{0.67} &
+	\multicolumn{1}{r}{0.69} \\
+	\multicolumn{1}{l}{\hspace{1em}4+} &
+	\multicolumn{1}{|r}{0.64} &
+	\multicolumn{1}{r}{0.62} \\
+	\cline{1-3}
+\end{tabular}
+\end{table}
+	
+	\begin{table}[!h]
+		\centering
+	\caption{Middle income quintile}
+	\begin{tabular}{lll}
+		\cline{1-3}
+		\multicolumn{1}{c}{} &
+		\multicolumn{2}{|c}{2021} \\
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{|r}{Pre-July} &
+		\multicolumn{1}{r}{Post-July} \\
+		\cline{1-3}
+		\multicolumn{1}{l}{Number of kids} &
+		\multicolumn{1}{|r}{} &
+		\multicolumn{1}{r}{} \\
+		\multicolumn{1}{l}{\hspace{1em}None} &
+		\multicolumn{1}{|r}{0.59} &
+		\multicolumn{1}{r}{0.60} \\
+		\multicolumn{1}{l}{\hspace{1em}1} &
+		\multicolumn{1}{|r}{0.75} &
+		\multicolumn{1}{r}{0.75} \\
+		\multicolumn{1}{l}{\hspace{1em}2-3} &
+		\multicolumn{1}{|r}{0.73} &
+		\multicolumn{1}{r}{0.74} \\
+		\multicolumn{1}{l}{\hspace{1em}4+} &
+		\multicolumn{1}{|r}{0.68} &
+		\multicolumn{1}{r}{0.67} \\
+		\cline{1-3}
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\caption{Fourth income quintile}
+\begin{tabular}{lll}
+	\cline{1-3}
+	\multicolumn{1}{c}{} &
+	\multicolumn{2}{|c}{2021} \\
+	\multicolumn{1}{c}{} &
+	\multicolumn{1}{|r}{Pre-July} &
+	\multicolumn{1}{r}{Post-July} \\
+	\cline{1-3}
+	\multicolumn{1}{l}{Number of kids} &
+	\multicolumn{1}{|r}{} &
+	\multicolumn{1}{r}{} \\
+	\multicolumn{1}{l}{\hspace{1em}None} &
+	\multicolumn{1}{|r}{0.66} &
+	\multicolumn{1}{r}{0.66} \\
+	\multicolumn{1}{l}{\hspace{1em}1} &
+	\multicolumn{1}{|r}{0.80} &
+	\multicolumn{1}{r}{0.80} \\
+	\multicolumn{1}{l}{\hspace{1em}2-3} &
+	\multicolumn{1}{|r}{0.79} &
+	\multicolumn{1}{r}{0.80} \\
+	\multicolumn{1}{l}{\hspace{1em}4+} &
+	\multicolumn{1}{|r}{0.76} &
+	\multicolumn{1}{r}{0.72} \\
+	\cline{1-3}
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\caption{Highest income quintile}
+	\begin{tabular}{lll}
+		\cline{1-3}
+		\multicolumn{1}{c}{} &
+		\multicolumn{2}{|c}{2021} \\
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{|r}{Pre-July} &
+		\multicolumn{1}{r}{Post-July} \\
+		\cline{1-3}
+		\multicolumn{1}{l}{Number of kids} &
+		\multicolumn{1}{|r}{} &
+		\multicolumn{1}{r}{} \\
+		\multicolumn{1}{l}{\hspace{1em}None} &
+		\multicolumn{1}{|r}{0.75} &
+		\multicolumn{1}{r}{0.75} \\
+		\multicolumn{1}{l}{\hspace{1em}1} &
+		\multicolumn{1}{|r}{0.84} &
+		\multicolumn{1}{r}{0.85} \\
+		\multicolumn{1}{l}{\hspace{1em}2-3} &
+		\multicolumn{1}{|r}{0.84} &
+		\multicolumn{1}{r}{0.85} \\
+		\multicolumn{1}{l}{\hspace{1em}4+} &
+		\multicolumn{1}{|r}{0.80} &
+		\multicolumn{1}{r}{0.74} \\
+		\cline{1-3}
+	\end{tabular}
+\end{table}
+	
+	
+	
+	
+\end{document}

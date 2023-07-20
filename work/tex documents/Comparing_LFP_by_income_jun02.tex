@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage[margin=1.0in]{geometry}
+\setlength{\parskip}{1em}
+
+%% some of Shigeru's custom commands, borrowed bc I am putting some of his tables alongside mine and I don't know what's custom and what isn't.
+
+%\addtolength{\textheight}{1in}
+\newcommand{\olsec}{VI.}
+
+% \bibpunct{(}{)}{,}{a}{,}{,}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\newcommand{\mct}[1]{\multicolumn{1}{c}{#1}}
+\newcommand{\rr}[1]{\multicolumn{1}{r|}{#1}}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+\newcommand{\mr}[3]{\multirow{#1}{#2}{#3}}
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\wk}{\cellcolor[gray]{0.92}}
+\newcommand{\md}{\cellcolor[gray]{0.8}}
+\newcommand{\strg}{\cellcolor[gray]{0.5}}
+
+\newcommand{\wid}[1]{8cm}
+\newcommand{\hi}[1]{6cm}
+
+
+%% end of header
+\title{Labor force participation by imputed family income category}
+\author{Madison informal notes}
+\date{June 1, 2023}
+
+\begin{document}
+	\maketitle
+
+\section{Verifying model w/ ASEC}
+
+\subsection{No exclusion}	
+	\begin{table}[!h]
+		\centering
+		\caption{LFPRs by actual family income category, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&	&	35.9	&	34.1	&	33.7	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&	&	53.6	&	53.2	&	52.7	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	& &	 65.4	&	65.5	&	65.6	\\
+			100,000 $-$ 149,999\hspace{0.6mm}& &	73.3	&	72.8	&	72.8	\\
+			150,000 $-$ 	\hspace{1.4cm}	& 	&	76.2	&	76.9	&	77.2	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&	&	62.7	&	62.0	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.5 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income, ASEC (\% as of March)\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&		&	38.0	&	38.0	&	37.3	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&		&	56.0	&	55.2	&	55.6	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	&		&	63.1	&	63.0	&	63.1	\\
+			100,000 $-$ 149,999\hspace{0.6mm}&		&	72.8	&	73.0	&	72.7	\\
+			150,000 $-$ 	\hspace{1.4cm}	&		&	75.4	&	75.3	&	75.7	\\ \midrule
+			\mct{Overall (ASEC, 16+)}			&		&	62.7	&	62.0	&	62.5	\\	
+			\mct{Overall (Official NSA)}		&	&	62.6	&	61.5	&	62.4 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+	\end{table}
+	
+	\newpage
+	Note that these numbers in Table 2 are slightly different from ones I showed yesterday because I had to remove a variable from the imputation model that was not present in the Basic monthly dataset. Since the predictive model is different, some people's income values were differently imputed, resulting in some ending up in different predicted income categories. Hence, different LFPRs for the predicted categories.
+	
+\subsection{Exclude 2-person retiree households}	
+	\begin{table}[!h]
+		\centering
+		\caption{LFPRs by actual family income category\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& 		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&	&	39.0	&	37.1	&	36.7	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&	&	60.8	&	60.9	&	60.0	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	& &	 71.0	&	71.2	&	71.5	\\
+			100,000 $-$ 149,999\hspace{0.6mm}& &	77.3	&	76.6	&	77.0	\\
+			150,000 $-$ 	\hspace{1.4cm}	& 	&	78.9	&	79.2	&	79.7	\\ \midrule
+			\mct{Overall}			&	&	67.6	&	66.9	&	67.4	\\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements, excluding individuals from 2-person households wherin both people are retired.}
+		\end{minipage}
+		
+		\centering
+		\caption{LFPRs by predicted family income category\label{tab:lfprs}}
+		\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+			\toprule 
+			& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+			Income group (\$) 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+			$-$ 24,999\hspace{0.1cm} 		&		&	40.3	&	40.2	&	39.3	\\	
+			25,000 $-$ 49,999\hspace{0.1cm}  	&		&	62.4	&	61.9	&	62.6	\\
+			50,000 $-$ 99,999\hspace{0.1cm}	&		&	70.2	&	69.9	&	70.1	\\
+			100,000 $-$ 149,999\hspace{0.6mm}&		&	76.1	&	76.5	&	76.8	\\
+			150,000 $-$ 	\hspace{1.4cm}	&		&	76.6	&	76.2	&	76.8	\\ \midrule
+			\mct{Overall}			&		&	67.6	&	66.9	&	67.4 \\ \bottomrule
+		\end{tabularx}
+		\vspace{1mm}
+		\vspace{1mm}
+		\begin{minipage}[t]{\textwidth}
+			\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Supplements, excluding individuals from 2-person households wherin both people are retired. Income groups are defined using the predicted values of ftotval for the same observations that appear in the ASEC.}
+		\end{minipage}
+
+
+
+
+
+	\centering
+\caption{LFPRs by predicted family income category, Basic March\label{tab:lfprs}}
+\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}r r r r r }
+	\toprule 
+	& \mc{4}{c}{Year}  \\ \cmidrule(lr){2-5}
+	Income group (\$) 	& \mct{}		&	\mct{2020}	&	\mct{2021}	&	\mct{2022}	\\ \midrule
+	$-$ 24,999\hspace{0.1cm} 		&		&	47.8	&	45.4	&	44.9	\\	
+	25,000 $-$ 49,999\hspace{0.1cm}  	&		&	61.6	&	61.0	&	61.8	\\
+	50,000 $-$ 99,999\hspace{0.1cm}	&		&	67.6	&	66.4	&	66.5	\\
+	100,000 $-$ 149,999\hspace{0.6mm}&		&	76.2	&	75.0	&	74.9	\\
+	150,000 $-$ 	\hspace{1.4cm}	&		&	60.5	&	61.2	&	61.3	\\ \midrule
+	\mct{Overall}			&		&	64.1	&	63.0	&	63.3 \\ \bottomrule
+\end{tabularx}
+\vspace{1mm}
+\vspace{1mm}
+\begin{minipage}[t]{\textwidth}
+	\footnotesize{\emph{Notes}: Sample is all participants 16+ from the March Basic, excluding individuals from 2-person households wherin both people are retired. Income groups are defined using the predicted values of ftotval for the Basic monthly observations.}
+\end{minipage}
+\end{table}
+
+Having applied the imputation model to the Basic monthly data, Table 5 shows the same computations as above, only on the people who appear in the March Basic data. 
+
+ My only explanation for the differences would be that the people in the Basic are a subset of the people in the ASEC. ASEC has additional groups added in order to improve national representation and, for some reason, the subset of those individuals who appear in the March Basic survey have slightly different patterns in labor force participation by income category.
+
+\section{LFPR by income, monthly frequency}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"C:/Users/c1mep01/OneDrive - FR Banks/childtaxcredit_proj_sfmp/work/New folder/plot_monthly_lfpr"}
+	\caption{}
+	\label{fig:plotmonthlylfpr}
+\end{figure}
+
+
+
+\end{document}
