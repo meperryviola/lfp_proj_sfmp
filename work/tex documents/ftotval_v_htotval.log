@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.9.28)  11 JUL 2023 14:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.9.28)  1 AUG 2023 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -368,8 +368,8 @@ n[]educ c.share[]elderly c.numadult##i.hefaminc
 [3] [4] [5] [6] (ftotval_v_htotval.aux) ) 
 Here is how much of TeX's memory you used:
  5336 strings out of 478354
- 82975 string characters out of 2846927
- 406220 words of memory out of 3000000
+ 82931 string characters out of 2846927
+ 406211 words of memory out of 3000000
  23684 multiletter control sequences out of 15000+600000
  475359 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
